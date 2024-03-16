@@ -1,0 +1,42 @@
+.card input{
+    width: 50px;
+    border: none;
+    background: none;
+    height: 50px;
+    border-radius: 20px;
+   
+}
+.followme-wrap {
+    display: flex;
+  }
+  
+  .followme {
+    display: flex;
+    align-items: center;
+  }
+  
+  .followme h3 {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.3rem;
+  }
+  
+  .followme .footer-line {
+    width: 60px;
+    height: 2px;
+    background-color: #ffffff;
+    margin: 0 1.2rem;
+    display: inline-block;
+  }
+  
+  .social-media a {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-right: 0.4rem;
+    transition: 0.3s;
+  }
+  
+  .social-media a:hover {
+    color:#ff9100;
+  }
+  

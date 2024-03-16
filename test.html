@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+</head>
+<body>
+    <div class="contact-form">
+        <h3 class="title">Contact me</h3>
+        <form name="submit-to-google-sheet" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="2dffdf49-9a98-4a4b-9152-a32b21fbb0a4">
+            <input type="hidden" name="subject" value="New message from your Website">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <input type="hidden" name="from_name" value="Contact Initiated">
+            <!-- Add a hidden field for redirection -->
+            <input type="hidden" name="redirect" value="thankyou.html">
+            <div class="row">
+                <input type="text" class="contact-input" name="name" required placeholder="Name">
+            </div>
+            <div class="row">
+                <input type="text" class="contact-input" name="phone" required placeholder="Phone" />
+                <input type="email" class="contact-input" name="email" required placeholder="Email">
+            </div>
+            <div class="row">
+                <textarea name="message" class="contact-input textarea" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" class="btn" name="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyuR9T4r143Tt4y9xirvLrDWiw5eOzhInHw1mwZOcuKWwu-qD1K8gdPaiMsjXQocJhApw/exec';
+        const web3FormsURL = 'https://api.web3forms.com/submit';
+
+        const form = document.forms['submit-to-google-sheet'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            // Fetch request to submit data to Google Sheets
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Google Sheets Success!', response);
+                        // Redirect after successful submission
+                        window.location.href = form.querySelector('[name=redirect]').value;
+                    } else {
+                        throw new Error('Google Sheets Error: ' + response.statusText);
+                    }
+                })
+                .catch(error => console.error('Google Sheets Error!', error.message));
+
+            // Fetch request to submit data to Web3Forms
+            fetch(web3FormsURL, { method: 'POST', body: new FormData(form) })
+                .then(response => console.log('Web3Forms Success!', response))
+                .catch(error => console.error('Web3Forms Error!', error.message));
+        });
+    </script>
+</body>
+</html>

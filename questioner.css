@@ -1,0 +1,142 @@
+/* General Styles*/
+/* Genral Styles */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    background-color: #191818;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  position: relative;
+  z-index: 5;
+  max-width: 92rem;
+  padding: 0 4rem;
+  margin: 0 auto;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.text {
+  font-size: 1.25rem;
+  color: rgb(0, 0, 0);
+  line-height: 1.6;
+}
+
+
+.title-sm {
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+/* End General Styles*/
+
+
+.questionnaire{
+    padding-left: 0;
+    padding-top: 0.5rem;
+  }
+.form{
+    padding-right: 2rem;
+}
+.title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+    line-height: 1;
+    font-size: 2.8rem;
+    margin-bottom: 0.6rem;
+  }
+  .title:before {
+    content: attr(data-title);
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #e89c23;
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .title:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 3px;
+    background-color:#e89c23;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+.row{
+    width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            grid-column-gap: 0.6rem;
+}
+.text-input{
+    padding: 1.2rem 2.1rem;
+                margin: 0.6rem 0;
+                border: none;
+                outline: none;
+                background: #dfdfdf;
+                border-radius: 4rem;
+                font-weight: 600;
+                font-size: 1.25rem;
+                transition: 0.3s;
+}
+.text-input.textarea {
+    min-height: 220px;
+  }
+
+.btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background-color: #e89c23;
+    color: white;
+    border-radius: 2rem;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #ffffff;
+    color: #e89c23;
+  }
+  
+  .btn.small {
+    padding: 0.7rem 1.8rem;
+    font-size: 1rem;
+  }

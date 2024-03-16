@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="drag.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Upload Files</h2>
+                    <div>
+                         <span class="icon msg"></span>
+                        <span class="icon close">&times;</span>
+                    </div>
+                </div>
+                
+            <div class="drop-zone">
+                <div class="upload-icon">
+                    <div class="arrow-up"></div>
+                    <div class="bar"></div>
+                </div>
+                <h4>Drag and drop files to upload.</h4>
+                <label for="file" class="upload-file">select files</label>
+                <input type="file" hidden id="file" class="submit-file">
+            </div>
+            <div class="card-footer">
+                <small>
+                    Please be sure to upload only
+                    <strong>.jpg</strong>,
+                    <strong>.png</strong>,
+                    <strong>.jpeg</strong>,
+                    <strong>.svg</strong>,
+                    <strong>.pdf</strong>
+                    files.
+                </small> <br>
+                <small>Remember your file size must be less than <strong>4MB.</strong></small>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

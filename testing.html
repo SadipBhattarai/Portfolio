@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+    <div class="contact-form">
+        <h3 class="title">Contact me</h3>
+        <form name="form" action="#" method="POST">
+            <!-- Add a hidden field for redirection -->
+            <input type="hidden" name="redirect" value="thankyou.html">
+            <div class="row">
+                <input type="text" class="contact-input" id="name" name="name" required placeholder="Name">
+            </div>
+            <div class="row">
+                <input type="tel" class="contact-input" id="phone" name="phone" required placeholder="Phone" />
+                <input type="email" class="contact-input" id="email" name="email" required placeholder="Email">
+            </div>
+            <div class="row">
+                <textarea id="message" name="message" class="contact-input textarea" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" class="btn" id="submit" name="submit">Send</button>
+        </form>
+        
+    </div>
+    <script>
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone");
+        const message = document.getElementById("message");
+        const form = document.forms["form"]; 
+        // Select form by name attribute
+    
+        // Add event listener on form container
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log("clicked");
+    
+            // HTML property for email
+            let ebody = `<br>Name: <br>${name.value}<br><br>Phone: <br>${phone.value}<br><br>Email: <br>${email.value}<br><br>Message: <br>${message.value}<br>`;
+    
+            // Email code
+            Email.send({
+                SecureToken: "e4d2a65b-c074-4110-acc8-097dd62e96bc",
+                To: 'sadipbhattari97@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "New Contact mail from " + email.value,
+                Body: ebody
+            }).then(
+                message => alert('Sent')
+            );
+        });
+    </script>
+    
+</body>
+</html>
